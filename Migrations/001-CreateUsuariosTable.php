@@ -1,10 +1,10 @@
 <?php
 
-class CreateUsersTable extends Migration
+class CreateUsuariosTable extends Migration
 {
     public function up()
     {
-        $this->createTable('users', [
+        $this->createTable('usuarios', [
             '`id` INT AUTO_INCREMENT PRIMARY KEY',
             '`name` VARCHAR(255) NOT NULL',
             '`email` VARCHAR(255) NOT NULL UNIQUE',
@@ -16,12 +16,12 @@ class CreateUsersTable extends Migration
         ]);
 
         // Adicionando índices para melhor performance
-        $this->addIndex('users', 'email_index', 'email');
-        $this->addIndex('users', 'status_index', 'status');
+        $this->addIndex('usuarios', 'email_index', 'email');
+        $this->addIndex('usuarios', 'status_index', 'status');
     }
 
     public function down()
     {
-        $this->dropTable('users');
+        $this->dropTable('usuarios');
     }
-}
+} 

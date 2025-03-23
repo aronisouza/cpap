@@ -106,7 +106,18 @@ class MigrationManager
             }
         }
 
-        sort($pendingMigrations);
+        // Ordena as migrations pelo prefixo numérico
+        usort($pendingMigrations, function($a, $b) {
+            // Extrai o prefixo numérico (assume formato: 001-NomeDaMigration)
+            preg_match('/^(\d+)-/', $a, $matchesA);
+            preg_match('/^(\d+)-/', $b, $matchesB);
+            
+            $prefixA = isset($matchesA[1]) ? (int)$matchesA[1] : PHP_INT_MAX;
+            $prefixB = isset($matchesB[1]) ? (int)$matchesB[1] : PHP_INT_MAX;
+            
+            return $prefixA - $prefixB;
+        });
+
         return $pendingMigrations;
     }
 
@@ -170,6 +181,7 @@ class MigrationManager
      */
     private function getMigrationClassName($migration)
     {
-        return $migration;
+        // Remove o prefixo numérico (ex: 001-) do nome da migration
+        return preg_replace('/^\d+-/', '', $migration);
     }
 }
