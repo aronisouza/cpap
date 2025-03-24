@@ -1,10 +1,10 @@
 <?php 
     isset($_SESSION["user"]) ? header("Location: /") : "";
 ?>
-<div class="container mt-5 ">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="card shadow position-absolute top-50 start-50 translate-middle">
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 min-vh-100 d-flex align-items-center justify-content-center w-100">
+            <div class="card shadow">
                 <div class="card-body p-4">
                     <h4 class="text-center mb-4">Login</h4>
                     
@@ -23,9 +23,7 @@
                             <div class="input-group">
                                 <span class="input-group-text"><?= fldIco("key") ?></span>
                                 <input type="password" class="form-control" id="password" name="password" required>
-                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                    <?= fldIco("visibility") ?>
-                                </button>
+                                
                             </div>
                         </div>
                         

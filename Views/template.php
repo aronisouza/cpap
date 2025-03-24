@@ -28,5 +28,6 @@ if (!isset($_SESSION["user"]) && !str_contains($content, "Login") && !str_contai
     <script src="/Public/Js/jquery-3.6.4.min.js"  nonce="<?= $_SESSION['csp_nonce']; ?>"></script>
     <script src="/Public/Js/bootstrap.bundle.min.js"  nonce="<?= $_SESSION['csp_nonce']; ?>"></script>
     <script src="/Public/Js/Chartjs-v4.4.7.js"  nonce="<?= $_SESSION['csp_nonce']; ?>"></script>
+    <script src="/Public/Js/responsive.js"  nonce="<?= $_SESSION['csp_nonce']; ?>"></script>
 </body>
 </html>

@@ -5,26 +5,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/users">Usuário</a>
         </li>
       </ul>
 
-
       <div class="d-flex">
         <div class="btn-group">
           <?php if (!isset($_SESSION["user"])): ?>
-
             <a href="/login" class="nav-link d-inline-flex align-items-center justify-content-center gap-2">
               <?= fldIco("person", 24, "text-dark"); ?> Entrar
-          </a>
+            </a>
           <?php else: ?>
             <button type="button" class="nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
-              <?= fldIco("person", 24, "text-dark"); ?> Entrar
+              <?= $_SESSION['user']['name']; ?>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end">
+            <ul class="dropdown-menu" id="userDropdownGroup">
               <li><button class="dropdown-item" type="button">Perfil</button></li>
               <li><button class="dropdown-item" type="button">Plano Alimentar</button></li>
               <li>
@@ -35,8 +32,6 @@
           <?php endif; ?>
         </div>
       </div>
-
-
     </div>
   </div>
 </nav>
