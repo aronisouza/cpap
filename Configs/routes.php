@@ -6,6 +6,11 @@ return [
     ['GET', '/', 'HomeController', 'index'],
     ['GET', '/users', 'UserController', 'index'],
 
+    // Rotas para login
+    ['GET', '/login', 'LoginController', 'index'],
+    ['POST', '/login', 'LoginController', 'store'],
+    ['GET', '/logout', 'LoginController', 'logout'],
+
     // Rotas com parâmetros
     ['GET', '/users/edit/{id}', 'UserController', 'edit'],
     ['POST', '/users/edit/{id}', 'UserController', 'update'],
@@ -16,4 +21,4 @@ return [
 
     // Rota para deletar
     ['GET', '/users/delete/{id}', 'UserController', 'delete'],
-]; 
+];

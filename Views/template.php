@@ -1,3 +1,10 @@
+<?php
+// Verifica se o usuário não está autenticado e se não está na página de login ou home
+if (!isset($_SESSION["user"]) && !str_contains($content, "Login") && !str_contains($content, "home")) {
+    header("Location: /login");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

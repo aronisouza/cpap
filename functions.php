@@ -164,7 +164,7 @@ function generateCsrfToken() {
  * - $cor: text-primary text-secondary text-success, text-danger, text-warning, text-info, text-light, text-dark
  * - Usar em Botão => class: d-inline-flex align-items-center justify-content-center gap-2
  */
-function fldIco($iconName, $size, $cor)
+function fldIco($iconName, $size=20, $cor="text-dark")
 {
   // Validar o tamanho (opcional)
   if (!is_numeric($size) || $size <= 0) {

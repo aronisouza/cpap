@@ -12,20 +12,31 @@
         </li>
       </ul>
 
+
       <div class="d-flex">
         <div class="btn-group">
-          <button type="button" class="nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
-            <?= fldIco("person", 24, "text-dark"); ?> Entrar
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><button class="dropdown-item" type="button">Perfil</button></li>
-            <li><button class="dropdown-item" type="button">Plano Alimentar</button></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><button class="dropdown-item" type="button">Sair</button></li>
-          </ul>
+          <?php if (!isset($_SESSION["user"])): ?>
+
+            <a href="/login" class="nav-link d-inline-flex align-items-center justify-content-center gap-2">
+              <?= fldIco("person", 24, "text-dark"); ?> Entrar
+          </a>
+          <?php else: ?>
+            <button type="button" class="nav-link dropdown-toggle d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
+              <?= fldIco("person", 24, "text-dark"); ?> Entrar
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item" type="button">Perfil</button></li>
+              <li><button class="dropdown-item" type="button">Plano Alimentar</button></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a href="/logout" class="dropdown-item">Sair</a></li>
+            </ul>
+          <?php endif; ?>
         </div>
       </div>
-      
+
+
     </div>
   </div>
 </nav>

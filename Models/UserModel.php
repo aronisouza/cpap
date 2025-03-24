@@ -31,4 +31,18 @@ class UserModel {
         $delete->ExeDelete('usuarios', 'WHERE id = :id', "id={$id}");
         return $delete->getResult();
     }
+
+    public function findByEmail($email) {
+        $read = new Read();
+        $read->ExeRead('usuarios', "WHERE email = :email", "email={$email}");
+        $result = $read->getResult();
+        return $result ? $result[0] : null;
+    }
+
+    public function login($password, $email) {
+        $read = new Read();
+        $read->FullRead("SELECT email,name,role FROM usuarios WHERE email = :email AND password = :password" , "email={$email}&password={$password}");
+        $result = $read->getResult();
+        return $result ? $result[0] : null;
+    }
 }
