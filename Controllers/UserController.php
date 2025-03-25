@@ -134,6 +134,12 @@ class UserController extends Controller
         // Remove o campo csrf_token dos dados
         unset($_POST['csrf_token']);
         $id = fldCrip($idg, 1);
+        
+        // Verifica se a senha foi fornecida e a criptografa
+        if (!empty($_POST['password'])) {
+            $_POST['password'] = fldCrip($_POST['password'], 0);
+        }
+        
         // Atualiza um usuário no banco de dados
         $data = $_POST;
         $userModel = new UserModel();

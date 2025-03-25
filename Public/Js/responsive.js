@@ -3,7 +3,7 @@
  * Adiciona a classe 'dropend' à div com classe 'btn-group' em dispositivos móveis
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Função para verificar o tamanho da tela e adicionar/remover a classe 'dropend'
+    // Função para verificar o tamanho da tela e adicionar/remover a classes
     function checkScreenSize() {
         const btnGroup = document.getElementById('userDropdownGroup');
         if (btnGroup) {

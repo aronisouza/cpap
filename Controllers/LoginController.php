@@ -66,7 +66,7 @@ class LoginController extends Controller
             }
         } catch (Exception $e) {
             $this->setErrorAndRedirect(
-                "Erro ao processar sua solicitação.",
+                "Erro ao processar sua solicitação:: " . $e->getMessage(),
                 "/login",
                 "Alerta de Validação",
                 "warning"

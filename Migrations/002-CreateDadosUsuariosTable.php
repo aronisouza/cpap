@@ -9,7 +9,7 @@ class CreateDadosUsuariosTable extends Migration
             '`usuario_id` INT NOT NULL',
             '`peso` DECIMAL(5,2)',
             '`altura` DECIMAL(3,2)',
-            '`idade` TINYINT',
+            '`data_nascimento` DATE NULL DEFAULT NULL',
             '`atividade_fisica` ENUM("sedentario", "leve", "moderado", "ativo", "muito_ativo")',
             '`objetivo` ENUM("emagrecimento", "ganho_massa", "manutencao")',
             '`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP',

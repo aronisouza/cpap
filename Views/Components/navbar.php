@@ -22,7 +22,7 @@
               <?= $_SESSION['user']['name']; ?>
             </button>
             <ul class="dropdown-menu" id="userDropdownGroup">
-              <li><button class="dropdown-item" type="button">Perfil</button></li>
+              <li><a href="/profile" class="dropdown-item">Perfil</a></li>
               <li><button class="dropdown-item" type="button">Plano Alimentar</button></li>
               <li>
                 <hr class="dropdown-divider">

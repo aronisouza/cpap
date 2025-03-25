@@ -21,4 +21,8 @@ return [
 
     // Rota para deletar
     ['GET', '/users/delete/{id}', 'UserController', 'delete'],
+    
+    // Rotas para perfil do usuário
+    ['GET', '/profile', 'ProfileController', 'index'],
+    ['POST', '/profile/update', 'ProfileController', 'update'],
 ];
