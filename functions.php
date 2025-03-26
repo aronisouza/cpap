@@ -86,69 +86,6 @@ function fldCrip($caracter, $tipo)
   }
 }
 
-function fldMesBrasil($date)
-{
-  $meses = [
-    '01' => 'Janeiro',
-    '02' => 'Fevereiro',
-    '03' => 'Março',
-    '04' => 'Abril',
-    '05' => 'Maio',
-    '06' => 'Junho',
-    '07' => 'Julho',
-    '08' => 'Agosto',
-    '09' => 'Setembro',
-    '10' => 'Outubro',
-    '11' => 'Novembro',
-    '12' => 'Dezembro'
-  ];
-  return $meses[$date];
-}
-
-/**
- *- Transformar uma data 2025-11-25
- *- Em 25 Nov, 2025
- */
-function fldDateExtenso($date)
-{
-  $timestamp = strtotime($date);
-  $dia = date('d', $timestamp);
-  $mes = date('m', $timestamp);
-  $ano = date('Y', $timestamp);
-  return "{$dia} de " . fldMesBrasil($mes) . ", {$ano}";
-}
-
-/**
- *- Transformar texto tipo -> Cartão IT Mozão em cartaoitmozao
- *- $texto -> texto a ser modificado
- */
-function fldTirarAcento($texto)
-{
-  // Normaliza a string para remover acentos
-  $texto = iconv('UTF-8', 'ASCII//TRANSLIT', $texto);
-
-  // Remover espaços e caracteres especiais
-  $texto = preg_replace('/[^a-zA-Z0-9]/', '', $texto);
-
-  // Transformar em minúsculas
-  return strtolower($texto);
-}
-
-/**
- * TIPOS: primary, secondary, success, danger, warning, info, light e dark 
- */
-function fldCard($tipo, $header, $title, $text)
-{
-  echo "
-    <div class='card text-bg-{$tipo} mt-3' style='max-width: 100%;'>
-      <div class='card-header'>{$header}</div>
-      <div class='card-body'>
-        <h5 class='card-title'>{$title}</h5>
-        <p class='card-text'>{$text}</p>
-      </div>
-    </div>
-  ";
-}
 
 function generateCsrfToken() {
   if (empty($_SESSION['csrf_token'])) {

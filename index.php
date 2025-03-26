@@ -52,12 +52,17 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) {
     return true;
 });
 
+// Gera um nonce aleatório para CSP
+if (empty($_SESSION['csp_nonce'])) {
+    $_SESSION['csp_nonce'] = base64_encode(random_bytes(16));
+}
+
 header("Content-Security-Policy: " .
     "default-src 'self'; " .
-    "script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; " .
+    "script-src 'self' https://cdn.jsdelivr.net 'nonce-" . $_SESSION['csp_nonce'] . "'; " .
     "style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; " .
     "font-src 'self' https://fonts.gstatic.com; " .
-    "img-src 'self' data:;"
+    "img-src 'self' data:; " 
 );
 
 header("X-XSS-Protection: 1; mode=block");

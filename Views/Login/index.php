@@ -29,7 +29,6 @@ isset($_SESSION["user"]) ? header("Location: /") : "";
 
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary">Entrar</button>
-                            <a href="/users/create" class="btn btn-outline-secondary">Criar Conta</a>
                         </div>
                     </form>
                     
